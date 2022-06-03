@@ -1,0 +1,61 @@
+\include{content/tkiz-rules-cnn}
+
+\begin{tikzpicture}[
+		>=stealth',thick,
+		tip/.style={->,shorten >=0.007pt},
+		every node/.style={scale=0.7},
+		]
+		\matrix[column sep=2mm, row sep=2mm, align=center] {
+			\node (aux1)   [loss]      {Aux Loss};
+			&  &  &
+			\node (r181)[tiny]      {1/8};
+			& & & & &
+			\node (out)    [terminal]         {Output \\ 1x512x512x64};\\
+			
+			& &
+			\node (r141)   [tiny]      {1/4}; & &
+			\node (r142)   [tiny]      {1/4}; & & & &
+			\node (aux2)   [loss]      {Aux Loss}; 
+			& \\
+			
+			&
+			\node (r121)   [tiny]      {1/2}; 
+			& & & &
+			\node (r122)   [tiny]      {1/2}; & & &
+			\node (aux3)   [loss]      {Aux Loss};
+			& \\
+			
+			\node (raw)    [terminal]      {Input \\ 1x512x512x24};
+			& & & & & &
+			\node (r111)   [tiny]   {1/1}; & &
+			\node (aux4)   [loss]          {Aux Loss};
+			\\
+		};
+		
+		
+		\begin{scope}[->,rounded corners=2mm]
+		\draw[->, purple]     (raw.north) to [in=180,out=90] (r121.west);
+		\draw[->, purple]     (r121.north) to [in=180,out=90] (r141.west);
+		\draw[->, purple]     (r141.north) to [in=180,out=90] (r181.west);
+		
+		\draw[->]     (r141) to (r142);
+		\draw[->]     (r121) to (r122);
+		\draw[->]     (raw) to (r111);
+		
+		\draw[->, blue]     (r181.east) to [out=0,in=90] (r142.north);
+		\draw[->, blue]     (r142.east) to [out=0,in=90] (r122.north);
+		\draw[->, blue]     (r122.east) to [out=0,in=90] (r111.north);
+		
+		\draw[->, blue]     (r181.east) -- (out.west);
+		\draw[->, blue]     (r142.east) |- (out.west);
+		\draw[->, blue]     (r122.east) |- (out.west);
+		\draw[->, blue]     (r111.east) |- (out.west);
+		
+		\draw[->, dashed]     (r181) -- (aux1);
+		\draw[->, dashed]     (r142) -- (aux2);
+		\draw[->, dashed]     (r122) -- (aux3);
+		\draw[->, dashed]     (r111) -- (aux4);
+		\end{scope}
+		
+		\end{tikzpicture}
+		\\

@@ -1,0 +1,83 @@
+\tikzset{
+	ppblock/.style={
+		rectangle,
+		minimum size=6mm,
+		very thick,
+		draw=black!50,
+		text centered,
+		font=\ttfamily,
+		minimum width=8em,
+		minimum height=6mm,
+		top color=white,
+	},
+	%
+	figure/.style={
+		rectangle,
+		rectangle split,
+		rectangle split parts=2,
+		very thick,
+		draw=black!50,
+		text centered,
+		append after command={
+			\pgfextra
+			\fill[top color=#1, bottom color=#1]
+			(\tikzlastnode.one west) 
+			[rounded corners] |- (\tikzlastnode.north) -| (\tikzlastnode.one east) 
+			[sharp corners]   |- (\tikzlastnode.one split) -| cycle;
+			\fill[top color=white, bottom color=#1]
+			(\tikzlastnode.two west) 
+			[rounded corners] |- (\tikzlastnode.south) -| (\tikzlastnode.two east)  
+			[sharp corners]   |- (\tikzlastnode.one split) -| cycle;
+			\endpgfextra
+		},
+	},
+    splitted/.style={
+        rectangle,
+        rectangle split,
+        rectangle split horizontal,
+        rectangle split parts=2,
+        very thick,
+        draw=black!50,
+        text centered,
+        append after command={
+            \pgfextra
+            \fill[top color=white, bottom color=#1]
+            (\tikzlastnode.south)
+            [rounded corners] -| (\tikzlastnode.west) |- (\tikzlastnode.one north)
+            [sharp corners]   -| (\tikzlastnode.one split) |- cycle;
+            \fill[top color=white, bottom color=#1]
+            (\tikzlastnode.two south)
+            [rounded corners] -| (\tikzlastnode.east) |- (\tikzlastnode.north)
+            [sharp corners]   -| (\tikzlastnode.one split) |- cycle;
+            \endpgfextra
+        },
+    },
+	%
+	static/.style={ppblock, bottom color={black!20}},
+	nonterminal/.style={ppblock, bottom color={blue!30}},
+	terminal/.style={ppblock, bottom color={green!20}},
+	algorithm/.style={ppblock, bottom color={yellow!50}},
+	error/.style={ppblock, bottom color={red!20}},
+	type/.style={ppblock, bottom color={red!20}},
+	loss/.style={ppblock, dashed, bottom color={black!20}, font=\itshape},
+	%
+	tiny/.style={
+		rounded rectangle,
+		very thick,
+		draw=black!50,
+		top color=white,
+		bottom color=red!20,
+        text centered,
+		font=\ttfamily,
+	},
+    operator/.style = {
+        circle,
+        scale=0.6,
+        draw=black!50,
+        top color=white,
+        bottom color=red!20,
+        font=\boldmath,
+    },
+	%
+	skip loop/.style={to path={-- ++(0,#1) -| (\tikztotarget)}}
+}

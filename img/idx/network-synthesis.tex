@@ -1,0 +1,28 @@
+\include{content/tkiz-rules-cnn}
+
+\vspace{-1em}
+\begin{tikzpicture}[
+    >=stealth',thick,
+    tip/.style={->,shorten >=0.007pt},
+    every node/.style={scale=0.7},
+]
+
+\matrix[column sep=4mm, row sep=4mm, align=center] {
+    % First row:
+    \node (raw)   [terminal]     {Input \\ 1200x800xN};      &
+    \node (bn)    [static]       {BatchNorm \\ 1200x800xN};  &
+    \node (ibf)   [type]         {IBF \\ 1200x800x6};        &
+    \node (idx)   [type]         {Index \\ 1200x800x1};      &
+    \node (spr)   [type]         {SPRB \\ 1200x800x1};       &
+    \node (out)   [terminal]     {Output \\ 1200x800x1};     \\
+};
+
+\begin{scope}[->,rounded corners=2mm]
+  \draw[->]     (raw) -- (bn);
+  \draw[->]     (bn) -- (ibf);
+  \draw[->]     (ibf) -- (idx);
+  \draw[->]     (idx) -- (spr);
+  \draw[->]     (spr) -- (out);
+\end{scope}
+
+\end{tikzpicture}

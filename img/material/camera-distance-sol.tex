@@ -1,0 +1,90 @@
+
+\begin{tikzpicture}[scale=.7,every node/.style={minimum size=1cm},on grid]
+	% bottom part
+	\begin{scope}[yshift=-83,every node/.append style={yslant=0.5,xslant=-1},yslant=0.5,xslant=-1, scale=2.5]
+		\fill[top color=black!5, bottom color=white] (0,0) rectangle (2,2);
+		\draw[step=4mm, black] (0,0) grid (2,2); 
+		\draw[black,thick] (0,0) rectangle (2,2);
+		% center pixel
+		\fill[top color=black!10, bottom color=orange] (0.85,0.85) rectangle (1.15,1.15);
+		% upper part
+		\fill[top color=black!10, bottom color=yellow] (1.25,0.85) rectangle (1.55,1.15);
+		\fill[top color=black!10, bottom color=yellow] (0.85,1.25) rectangle (1.15,1.55);
+		\fill[top color=black!10, bottom color=yellow] (1.25,1.25) rectangle (1.55,1.55);
+		% lower part
+		\fill[top color=black!10, bottom color=yellow] (0.45,0.85) rectangle (0.75,1.15);
+		\fill[top color=black!10, bottom color=yellow] (0.85,0.45) rectangle (1.15,0.75);
+		\fill[top color=black!10, bottom color=yellow] (0.45,0.45) rectangle (0.75,0.75);
+		left and right
+		\fill[top color=black!10, bottom color=green] (0.45,1.25) rectangle (0.75,1.55);
+		\fill[top color=black!10, bottom color=yellow] (1.25,0.45) rectangle (1.55,0.75);
+		% dim
+		\draw[<->,] (-0.05, 1.20) to (-0.05,1.6);
+		\node (R) at (-0.15, 1.40) {R};
+		\draw[<->,] (1.20,-0.05) to (1.6,-0.05);
+		\node (R) at (1.40,-0.15) {R};
+		
+		%\foreach \i in {1,...,300}{
+		%	\fill [black, fill opacity=0.3] (rnd*2,rnd*2) circle [radius=0.2pt];
+		%}
+	\end{scope}
+	
+	% triangle
+	%\draw[-, dashed] ( 0,-2.93) to (0,6);
+	\draw[-, dashed] (-5,-0.38) to ( 2,6.1);
+	\draw[-, dashed] ( 5,-0.38) to (-2,6.1);
+	%\draw[-, dashed] ( 0,4.25) to ( 0,6.1);
+	\draw[-, dashed] ( 0,-2.93) to ( 0,7.1);
+	
+	% square projection
+	\draw[-, dotted] (-1.29,-0.41) to (0.5,6.1);
+	\draw[-, dotted] (-2.75,-0.41) to (1.1,6.1);
+	\draw[-, dotted] (-2.00,-0.79) to (0.8,6.25);
+	\draw[-, dotted] (-2.00,-0.04) to (0.8,5.95);
+	
+	% upper part
+	\begin{scope}[yshift=145,every node/.append style={yslant=0.5,xslant=-1},yslant=0.5,xslant=-1]
+		\fill[black!5,fill opacity=0.5] (0,0) rectangle (2,2);
+		\draw[step=4mm, black] (0,0) grid (2,2); 
+		\draw[black,thick] (0,0) rectangle (2,2);
+		% center pixel
+		\fill[orange] (0.85,0.85) rectangle (1.15,1.15);
+		% upper part
+		\fill[yellow] (1.25,0.85) rectangle (1.55,1.15);
+		\fill[yellow] (0.85,1.25) rectangle (1.15,1.55);
+		\fill[yellow] (1.25,1.25) rectangle (1.55,1.55);
+		% lower part
+		\fill[yellow] (0.45,0.85) rectangle (0.75,1.15);
+		\fill[yellow] (0.85,0.45) rectangle (1.15,0.75);
+		\fill[yellow] (0.45,0.45) rectangle (0.75,0.75);
+		left and right
+		\fill[yellow] (0.45,1.25) rectangle (0.75,1.55);
+		\fill[green] (1.25,0.45) rectangle (1.55,0.75);
+		% dim
+		\draw[<->,] (2.15, 1.20) to (2.15,1.6);
+		\node (P) at (2.45, 1.40) {P};
+		\draw[<->,] (1.20,2.15) to (1.6,2.15);
+		\node (P) at (1.40,2.45) {P};
+	\end{scope}
+	
+	%heigh
+	\draw[-, dotted] (0,6.1) to (6,6.1);
+	\draw[-, dotted] (0,4.25) to (6,4.25);
+	\draw[-, dotted] (0,-0.4) to (6,-0.4);
+	\draw[-latex,thick,<->,] (6,-0.4) to (6,4.25);
+	\draw[-latex,thick,<->,] (6,4.25) to (6,6.1);
+	\node (F) at (5.7,5.175) {F};
+	\node (H) at (5.7,2.125) {H};
+	\node (C) at (-0.5,4.25) {C};
+	
+	% points
+	\fill[blue] (0,6.1) circle (2pt);
+	\fill[blue] (0,4.25) circle (2pt);
+	\fill[blue] (0,-0.4) circle (2pt);
+	
+	\draw[-latex,thick](-3.2,1.5) node[left]{\small Scene}
+	to[out=0,in=135] (-1.95,1.05);
+	\draw[-latex,thick,](-3,5) node[left]{\small Image}
+	to[out=0,in=225] (-1.2,5.7);
+
+\end{tikzpicture}

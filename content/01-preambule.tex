@@ -1,0 +1,50 @@
+\documentclass[../thesis.tex]{subfiles}
+% !TEX spellcheck = fr_FR
+
+\begin{document}
+    \chapter*{Préambule}
+    \label{chap:01-preamble}
+    \thispagestyle{empty} 
+    
+    % a gestion des adventices qui est critique, mais la limitation de leur prolifération à tous les stades de la culture. 
+    % Au delà des questions de concurrence, un champs pollué l'est aussi pour l'année suivante, les cultures se succédant sur la même parcelle
+    
+    \paragraph{Cadre général} : En cultures maraîchères et grandes cultures, la gestion des adventices est une question critique. La limitation de leur prolifération à tous les stades de la culture est cruciale. Les adventices ont des conséquences importantes du point de vue qualitatif et financier mais également sur le plan agroécologique. Les solutions de gestion des cultures peuvent être préventives en contribuant de manière directe ou indirecte à diminuer la nuisibilité des adventices \cite{caussanel:hal-00885190} dans le temps, leur gestion aux stades de développement les plus précoces est donc essentielle. Ces solutions reposent essentiellement sur des leviers agronomiques (allongement des rotations, réduction du travail du sol : faux-semis, cultures associées, \dots). D'autres solutions, dites curatives \cite{cordeau:hal-01604468}, proposent des solutions techniques à ces questions. Le plus souvent chimiques, on cherche de plus en plus à les réduire en s'orientant vers des solutions alternatives en ayant recours au désherbage mécanique, voire manuel, selon le type et le stade de développement des cultures.
+    
+    \par En agriculture conventionnelle, pour des raisons budgétaires et de rentabilité, l'utilisation de produits phytosanitaires est encore privilégiée, au détriment d'autres méthodes jugées plus coûteuses ou moins performantes, même fréquentes et bien raisonnées \cite{COLBACH2010205}. L'utilisation massive de ces produits chimiques de synthèse a conduit, entre autre, au cours des dernières décennies à une pollution des eaux \footnote{Projet PULSE : Paysages, ParticULes, peSticidEs (2020-2022)} \cite{reulier:tel-01264723}, à un appauvrissement de la biodiversité \cite{jonathan-storkey} et à l'apparition de phénomènes de résistance \cite{delye:hal-02736186}. La réduction des produits phytosanitaires représente donc un des enjeux majeurs du secteur agricole. En effet, dans un objectif  ``zéro-phyto'', il s'agit de réduire l'impact environnemental de cette pratique de désherbage tout en accompagnant l'agriculteur vers de nouvelles stratégies fiables et robustes qui allient agroécologie et nouvelles technologies. Cela repose principalement sur la diversification des méthodes de lutte \cite{Wezel2014} au-delà des herbicides (choix de variétés, rotation des cultures, prophylaxie, biocontrôle, \dots). Cette démarche s'inscrit dans les plans gouvernementaux français tels que Ecophyto, Ecophyto 2 et Ecophyto II+.
+    
+    % les phytos c'est pas que le désherbage, mais que c'est ce qui t'intéresse car c'est ton sujet.
+    
+    \paragraph{Objectif} : L'objectif est donc de proposer des outils numériques pour une meilleure gestion des adventices dans le cadre des cultures dites conventionnelles. La démarche envisagée s'inscrit dans le domaine de l'agriculture numérique \cite{bellonmaurel:hal-02373921}, qui englobe l'agriculture de précision, et consiste en une évaluation multi-critère des adventices détectées par imagerie pour une gestion localisée.
+    
+    \par Actuellement les études sur la détection des adventices par imagerie sont difficilement comparables car fortement liées aux systèmes d'imagerie, aux résolutions spatiales et au stade de développement du cycle cultural en cours. En effet, la comparaison des performances des méthodes actuelles de traitement d'images est difficile, puisque leurs études sont basées sur des critères d'appréciation disparates ; c'est-à-dire que les données, les analyses et les métriques ne concordent pas entre les études. Dans la majorité des cas, elles ne permettent donc pas leurs transpositions à une nouvelle situation.
+    
+    \newpage\thispagestyle{empty} 
+    \paragraph{Contexte du projet} : L'équipe de recherche ``agriculture de précision'' (pôle GestAd) de l'UMR Agroécologie de Dijon a pour objectif de produire des connaissances mobilisables pour une gestion durable de la flore adventice, c'est-à-dire une gestion minimisant les intrants, tout en maintenant la production agricole. Dans cette optique, notre projet portera sur l'étude approfondie des différentes méthodes et métriques usuelles afin de définir clairement les meilleures d'entre elles. Cette démarche permettra également de préconiser les conditions d'acquisition optimales, afin de détecter et traiter les adventices directement et localement.
+    
+    \begin{center}
+        \vspace{2em}
+        \includegraphics[height=1.75cm]{img/covers/agroecolo}
+        %\vspace{-1em}
+    \end{center}
+    
+    \paragraph{Partenaires} : Ces travaux sont menés dans le cadre de deux projets de recherche :
+    
+    \begin{itemize}
+        \item \textbf{H2020 IWMPRAISE (2017-2022) :} La gestion intégrée des mauvaises herbes est la voie à suivre pour une agriculture durable et résiliente. IWMPRAISE (Integrated Weed Management : PRActical Implementation and Solutions for Europe) est un projet européen de type ``Horizon 2020'' qui soutient et favorise la mise en œuvre de la GIRE en Europe. La gestion des mauvaises herbes en Europe deviendra plus respectueuse de l'environnement, si le concept de gestion intégrée des mauvaises herbes s'impose dans les fermes \cite{Kudsk2020}. Dans le cadre de ce travail, l'équipe envisagera des solutions couvrant majoritairement les problèmes de « détection - interprétation ». \\
+        
+        \item \textbf{ANR challenge ROSE consortium ROSEAU (2018-2021) :} Le dispositif de financement Challenge ROSE (RObotique aux Service des Ecophyto) vise à susciter des dynamiques de recherche en mobilisant les acteurs scientifiques et industriels autour d'une même problématique. Quatre équipes de recherche se focalisent sur le désherbage de l'intra-rang en cultures maraîchères de plein champ et en grandes cultures à fort écartement. Les solutions envisagées par le consortium ROSEAU (RObotics SEnsorimotor loops to weed AUtonomously) couvrent la totalité de la chaîne « détection - interprétation - décision - action ». Chaque équipe proposera des éléments de recherche dans une ou plusieurs parties de la chaîne, et ces travaux seront mis en commun pour la création d'une machine bloc-outils permettant la gestion des adventices de façon autonome. L'équipe de recherche ``Agriculture de précision'' envisage de couvrir les problèmes de « détection » au sein du consortium ROSEAU porté par la société SITIA, possédant un robot autonome dénommé PUMA. \\
+    \end{itemize}
+    
+    \paragraph{Conclusion} : Notre cadre général est donc soutenu par \textit{IWMPRAISE H2020}, qui consiste en l'évaluation d'une méthode de détection des adventices.
+    Nous appliquerons nos algorithmes pour un contexte particulier dans le cadre de l'\textit{ANR Challenge Rose} sur des cultures sarclées.
+    
+    
+    \vfill
+    \hfill
+    \includegraphics[height=1.5cm]{img/covers/iwmpraise}
+    \hfill
+    \includegraphics[height=1.5cm]{img/covers/logo-chalenge}
+    \hfill
+    \null
+\end{document}

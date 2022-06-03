@@ -1,0 +1,23 @@
+\include{content/tkiz-rules-cnn}
+
+\begin{tikzpicture}[
+>=stealth',thick,
+tip/.style={->,shorten >=0.007pt},
+every node/.style={scale=0.7},
+]
+
+\matrix (table) [matrix of nodes, column sep=6mm, row sep=6mm, align=center] {
+    \node (false)        [figure={green!20}]      {\includegraphics[width=4cm]{img/leaf/airphen-false} \nodepart{second} {\faShare*} Pre-Processing}; &
+    \node (index)        [figure={blue!30}]      {\includegraphics[width=4cm]{img/leaf/airphen-index} \nodepart{second} {\faPagelines} Deep-Indices}; &
+    \node (watershed)    [figure={blue!30}]      {\includegraphics[width=4cm]{img/leaf/airphen-watershed} \nodepart{second} {\faLeaf} Deep-Leaves}; &
+    \node (fv)    [nonterminal,rotate=90,xshift=16mm]      {{\faBolt} Optimization \\ {\faCalculator} Feature Extraction \\ {\faChartPie} And Data-Mining}; &
+    %\node (cl)    [nonterminal,rotate=90,xshift=16mm]      {Classification}; &
+    \node (map)    [figure={green!20}]      { \includegraphics[width=4cm]{img/conclusion/airphen-crop-weed-map} \nodepart{second} {\faSearch} Classification}; \\
+};
+
+\draw[->] (false) to (index);
+\draw[->] (index) to (watershed);
+\draw[->] (watershed) to (fv);
+\draw[->] (fv) to (map);
+
+\end{tikzpicture}

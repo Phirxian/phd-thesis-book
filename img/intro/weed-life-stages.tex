@@ -1,0 +1,105 @@
+\begin{tikzpicture}[
+    >=stealth',thick,
+	point/.style={coordinate},
+	every join/.style={rounded corners},
+	align=center,
+	%
+    table nodes/.style={
+        rectangle,
+        draw=black,
+        align=center,
+        minimum height=7mm,
+        text depth=0.5ex,
+        text height=2ex,
+        inner xsep=0pt,
+        outer sep=0pt
+    },      
+    table/.style={
+        matrix of nodes,
+        row sep=-\pgflinewidth,
+        column sep=-\pgflinewidth,
+        nodes={
+            table nodes
+        },
+        execute at empty cell={\node[draw=none]{};}
+    },
+    %
+    window/.style = {
+		circle,
+		draw=black,
+		top color=white,
+		bottom color=black!20,
+    },
+	base/.style = {
+		rectangle,
+		draw=black,
+		top color=white,
+		bottom color=black!20,
+		minimum width=4cm,
+		text centered,
+		font=\ttfamily
+        %font=\sffamily
+	},
+    semis1/.style = {
+        base,
+        top color=green!10,
+        bottom color=green!80,
+        minimum height=1.25cm,
+    },
+    semis2/.style = {
+        base,
+        top color=green!25,
+        bottom color=green!80!black,
+        minimum height=1.25cm,
+    },
+    semis3/.style = {
+        base,
+        top color=green!40,
+        bottom color=green!60!black,
+        minimum height=1.25cm,
+    },
+    semis4/.style = {
+        base,
+        top color=orange!80,
+        bottom color=orange!60!black,
+        minimum height=1.25cm,
+    },
+	banque/.style = {
+		base,
+	    top color=orange!40!white,
+	    bottom color=orange!40!gray,
+		minimum height=1.2cm,
+	},
+	%
+    tip/.style={->,shorten >=0.007pt},
+	every node/.style={font=\ttfamily, scale=0.8},
+]
+
+    \draw[black,thick] (-4.0,-2.2) rectangle (11.2,0.7);
+
+	\node (p01) [window, yshift=2mm, xshift=-30mm]  {1};
+	\node (p02) [window, yshift=2mm, xshift=10mm]   {2};
+	\node (p03) [window, yshift=2mm, xshift=40mm]   {3};
+	\node (p04) [window, yshift=2mm, xshift=80mm]   {4};
+	\node (p05) [window, yshift=2mm, xshift=120mm]  {5};
+	
+	
+	\draw[-, line width=2mm, opacity=0.3] (00mm, 7mm) -- (00mm, -22mm);
+	\draw[-, line width=2mm, opacity=0.3] (16mm, 7mm) -- (16mm, -22mm);
+	\draw[-, line width=2mm, opacity=0.3] (48mm, 7mm) -- (48mm, -22mm);
+	\draw[-, line width=2mm, opacity=0.3] (80mm, 7mm) -- (80mm, -22mm);
+	
+	\node (p11) [semis1, yshift=-10mm, xshift=0mm]   {\large semis\\[-0.2em] \large émergents};
+	\node (p12) [semis2, yshift=-10mm, xshift=40mm]   {\large semis\\[-0.2em] \large établis};
+	\node (p13) [semis3, yshift=-10mm, xshift=80mm]   {\large adventices \\[-0.2em] \large concurrentes};
+	\node (p14) [semis4, yshift=-10mm, xshift=120mm]   {\large nouvelles\\[-0.2em] \large graines};
+	
+	\node (p22) [banque, fit={(-5.518,-13mm) (13.2,-22mm)}, xshift=-3mm]   {\vskip 0pt \huge banque de semences};
+	
+	\node (p31) [base, yshift=14mm, xshift=-30mm]  {\large Culture semée};
+	\node (p32) [base, yshift=14mm, xshift=67mm]  {\large Culture récoltée};
+	
+	\draw[->,thick] (p31) -| (00mm, 7mm);
+	\draw[->,thick] (p32) -| (80mm, 7mm);
+\end{tikzpicture}
+\vspace{0.5em}

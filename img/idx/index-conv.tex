@@ -1,0 +1,26 @@
+\include{content/tkiz-rules-cnn}
+
+\vspace{-1em}
+\begin{tikzpicture}[
+    >=stealth',thick,
+    tip/.style={->,shorten >=0.007pt},
+    every node/.style={scale=0.7},
+]
+
+\matrix[column sep=4mm, row sep=4mm, align=center] {
+    % First row:
+    \node (raw)    [terminal]     {Input \\ 1200x800xN};      &
+    \node (idx)    [type]         {Index \\ 1200x800x1};      &
+    \node (norm)   [static]       {Norm \\ 1200x800x1};       &
+    \node (conv)   [nonterminal]  {Conv 1x1 \\ 1200x800x1};   &
+    \node (out)    [terminal]     {Output \\ 1200x800x1};     \\
+};
+
+\begin{scope}[->,rounded corners=2mm]
+  \draw[->]     (raw) -- (idx);
+  \draw[->]     (idx) -- (norm);
+  \draw[->]     (norm) -- (conv);
+  \draw[->]     (conv) -- (out);
+\end{scope}
+
+\end{tikzpicture}

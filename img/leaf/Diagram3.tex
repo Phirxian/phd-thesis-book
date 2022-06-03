@@ -1,0 +1,31 @@
+\include{content/tkiz-rules-cnn}
+
+\vspace{-1em}
+\begin{tikzpicture}[
+	>=stealth',thick,
+	tip/.style={->,shorten >=0.007pt},
+	every node/.style={scale=0.7},
+	]
+	
+	\matrix[column sep=4mm, row sep=4mm, align=center] {
+		% First row:
+		\node (raw)    [terminal]      {Input \\ 1x512x512xN};        &
+		\node (conv1)  [nonterminal]   {Conv \\ 1x512x512xW};         &
+		\node (conv2)  [nonterminal]   {Conv \\ 1x512x512xW};         &
+		\node (conv3)  [nonterminal]   {Conv \\ 1x512x512xW};         &
+		\node (out)    [terminal]      {Output \\ 1x512x512xW};       &
+		\\
+	};
+	
+	\begin{scope}[->,rounded corners=2mm]
+	\draw[->]     (raw) to (conv1);
+	\draw[->]     (raw.north) to [out=35,in=135, looseness=.5] (conv2.north);
+	\draw[->]     (raw.north) to [out=35,in=135, looseness=.5] (conv3.north);
+	\draw[->]     (conv1) to (conv2);
+	\draw[->]     (conv1.north) to [out=35,in=135, looseness=.5] (conv3.north);
+	\draw[->]     (conv2) to (conv3);
+	\draw[->]     (conv3) to (out);
+	\end{scope}
+		
+\end{tikzpicture}
+\\

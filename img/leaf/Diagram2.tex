@@ -1,0 +1,48 @@
+\include{content/tkiz-rules-cnn}
+
+\vspace{-1em}
+\begin{tikzpicture}[
+		>=stealth',thick,
+		tip/.style={->,shorten >=0.007pt},
+		every node/.style={scale=0.7},
+		]
+		\matrix[column sep=4mm, row sep=2mm, align=center] {
+			
+			\node (raw)    [terminal]      {Input \\ 1x512x512x16}; &
+			\node (conv1)  [nonterminal]   {Conv 1x1 \\ 1x512x512x8};
+			&&
+			\node (conv3)  [nonterminal, minimum width=4em]   {Conv 3x3}; &
+			\node (conv4)  [nonterminal, minimum width=4em]   {Conv 5x5}; \\
+			
+			&\node (conv2)  [nonterminal]   {Conv 1x1 \\ 1x512x512x4};      &
+			& & &
+			\node (conv7)  [nonterminal]   {Conv 1x1 \\ 1x512x512x4};    \\
+			
+			
+			&&&
+			\node (conv5)  [nonterminal, minimum width=4em]   {Conv 7x7}; &
+			\node (conv6)  [nonterminal, minimum width=4em]   {Conv 9x9}; &
+			\node (out)    [terminal]      {Output \\ 1x512x512x4};        \\
+		};
+		
+		
+		\begin{scope}[->,rounded corners=2mm]
+		\draw[->]     (raw) to (conv1);
+		\draw[->]     (conv1) to (conv2);
+		
+		\draw[->]     (conv2.east) to (conv3.west);
+		\draw[->]     (conv2.east) to (conv4.south west);
+		\draw[->]     (conv2.east) to (conv5.west);
+		\draw[->]     (conv2.east) to (conv6.north west);
+		\draw[->]     (conv2.east) to (conv7);
+		
+		\draw[->]     (conv3.south) to [in=180, out=-90,looseness=0.5] (conv7.west);
+		\draw[->]     (conv4.south) to [in=180, out=-90] (conv7.west);
+		\draw[->]     (conv5.north) to [in=180, out=90,looseness=0.5] (conv7.west);
+		\draw[->]     (conv6.north) to [in=180, out=90] (conv7.west);
+		
+		\draw[->]     (conv7) to (out);
+		
+		\end{scope}
+		
+\end{tikzpicture}\\

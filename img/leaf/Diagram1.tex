@@ -1,0 +1,46 @@
+\include{content/tkiz-rules-cnn}
+
+\begin{tikzpicture}[
+		>=stealth',thick,
+		tip/.style={->,shorten >=0.007pt},
+		every node/.style={scale=0.7},
+		]
+		\matrix[column sep=4mm, row sep=4mm, align=center] {
+			% First row:
+			\node (raw)    [terminal]      {Input \\ 1x512x512xN};         &
+			\node (iit)    [nonterminal]   {IIT \\ 1x512x512x(N+7)};           &
+			\node (ibf)    [nonterminal]   {IBF \\ 1x512x512x8};           &
+			\node (ufa1)   [nonterminal]   {UFA \\ 1x512x512x16};           \\
+			
+			
+			
+			\node (loss3)   [loss]          {Loss};         &
+			\node (loss2)   [loss]          {Aux Loss};     &
+			\node (core)    [nonterminal]   {Core Network \\ 1x512x512x64}; \\
+			
+			
+			\node (thr)    [terminal]      {Classification \\ 1x512x512x4};         &
+			\node (ufa2)   [nonterminal]   {UFA \\ 1x512x512x16};                   &
+			\node (coord)  [nonterminal]   {CoordConv \\ 1x512x512x73}; & 
+			\node (loss1)  [loss]          {Aux Loss};      \\
+		};
+		
+		\begin{scope}[->,rounded corners=2mm]
+		\draw[->]     (raw) -- (iit);
+		\draw[->]     (iit) -- (ibf);
+		\draw[->]     (ibf) -- (ufa1);
+		\draw[->]     (ufa1.south) to [in=45,out=-90] (coord.north east);
+		
+		\draw[->, dotted]     (ufa1) -- (loss1);
+		\draw[->, dotted]     (ufa2) -- (loss2);
+		\draw[->, dotted]     (thr) -- (loss3);
+		
+		\draw[->]     (ufa1.south west) -- (core.north east);
+		\draw[->]     (core) -- (coord);
+		\draw[->]     (coord) -- (ufa2);
+		\draw[->]     (ufa2) -- (thr);
+		\draw[->]     (ibf)  -- (core);
+		\end{scope}
+		
+		\end{tikzpicture}
+		\\

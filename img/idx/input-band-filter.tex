@@ -1,0 +1,34 @@
+\include{content/tkiz-rules-cnn}
+
+\vspace{-2em}
+\begin{tikzpicture}[
+    >=stealth',thick,
+    tip/.style={->,shorten >=0.007pt},
+    every node/.style={scale=0.7},
+]
+\matrix[column sep=4mm, row sep=4mm, align=center] {
+	& \node (ero1) [nonterminal]  {$max(x-a)$ \\ 1200x800xN};
+	& \node (p1)   [operator] {$\times$}; \\
+	%
+	\node (raw)    [terminal]      {Input \\ 1200x800xN};         &
+	\node (dil1)   [nonterminal]    {$min(a-x)$ \\ 1200x800xN};       &
+	\node (p2)     [operator] {$\cup$}; &
+	\node (conv1)  [nonterminal]   {Conv 1x1 \\ 1200x800x1};        &
+	\node (out)    [terminal]      {Output \\ 1200x800x1};        \\
+	& \coordinate (p3);        \\
+};
+
+\begin{scope}[->,rounded corners=2mm]
+    \draw[->]     (raw) -- (dil1);
+    \draw[->]     (raw) -- (ero1.south west);
+    \draw[->]     (dil1.north east) -- (p1);
+    \draw[->]     (ero1) -- (p1);
+    \draw[->]     (dil1) -- (p2);
+    \draw[->]     (ero1.south east) -- (p2);
+    \draw[->]     (raw.south) |- (p3) -| (p2.south);
+    \draw[->]     (p1) -- (p2);
+    \draw[->]     (p2) -- (conv1);
+    \draw[->]     (conv1) -- (out);
+\end{scope}
+
+\end{tikzpicture}

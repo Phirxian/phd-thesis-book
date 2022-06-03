@@ -1,0 +1,52 @@
+\include{content/tkiz-rules-cnn}
+
+\hspace*{-1.25cm}
+\vspace{-2em}
+\begin{tikzpicture}[
+>=stealth',thick,
+tip/.style={->,shorten >=0.007pt},
+every node/.style={scale=0.7},
+]
+\matrix (table) [matrix of nodes, column sep=4mm, row sep=2mm, align=center] {
+	&
+	\node (p01) [nonterminal]   {Pre-Processing};        &
+	\node (p02) [nonterminal]   {NDVI};            	 &
+	\node (p03) [nonterminal]   {Segmentation};          &
+	\node (p04) [nonterminal]   {Features};              &
+	\node (p05) [nonterminal]   {Classification};        \\
+	%%%%%%%
+	\node (p06) [tiny, bottom color=black!20]   {Raw Image};          &
+	\node (p07) [terminal]   {Pre-Processing};      &
+	\node (p08) [terminal]   {Deep Indices};       &
+	\node (p09) [terminal]   {Deep Leaves};        &
+	\node (p10) [terminal]   {Features};           &
+	\node (p11) [terminal]   {Data Mining};        &
+	\node (p12) [tiny, bottom color=black!20]   {Crop / Weed};        \\
+	%%%%%%%%
+	\node (paa) [xshift=-1.91cm] {}; &&&&&& \node (pxx) [xshift=1.91cm] {}; \\
+};
+
+\node[type, fit=(paa)(pxx), type, text height=2mm, minimum size=6mm] (p13) [yshift=-2mm, xshift=-1mm, type]   {Deep Learning};
+
+\begin{scope}
+
+\draw[->]     (p01) to (p02);
+\draw[->]     (p02) to (p03);
+\draw[->]     (p03) to (p04);
+\draw[->]     (p04) to (p05);
+
+\draw[->]     (p07) to (p08);
+\draw[->]     (p08) to (p09);
+\draw[->]     (p09) to (p10);
+\draw[->]     (p10) to (p11);
+\draw[->]     (p11) to (p12);
+
+\draw[->]     (p06) to node [text width=0.5cm,midway, yshift=1em, xshift=0.00em] {$2$} (p07);
+\draw[->]     (p06) |- node [text width=0.5cm,midway, yshift=1em, xshift=3.5em] {$3$} (p13);
+\draw[->]     (p06) |- node [text width=0.5cm,midway, yshift=1em, xshift=3.5em] {$1$} (p01);
+\draw[->]     (p13) -|  (p12);
+\draw[->]     (p05) -| (p12);
+\end{scope}
+
+\end{tikzpicture}
+\vspace{0.5em}

@@ -1,0 +1,70 @@
+
+
+\begin{tikzpicture}[>=stealth', tip/.style={->,shorten >=0.007pt}]
+
+    \coordinate (A) at (0.4,1.5);
+    \coordinate (B) at (1.9,-0.75);
+    \coordinate (C) at (2.8,0.75);
+    
+    \filldraw [thick, even odd rule, black!35] (3.5,0.75)  coordinate (GeneralStart) -- (C) -- (A) -- (0.35,-2) -- (B) -- (3.5,-0.75) -- cycle;
+    \draw[thick] (3.5,0.75) -- (C) -- (A) -- (0.35,-2) -- (B) -- (3.5,-0.75) -- cycle;
+    \draw[thick, red, opacity=0.8] (B) -- (C);
+    \draw[thick, blue, opacity=0.8] (A) -- (B);
+    
+    \draw[->, blue,line width=0.5mm] (-2,-0.05) to (1.25,-0.05) to (0.39,-0.6) to (1.0,-1.46);
+    \draw[->, green,line width=0.5mm] (-2,0) to (3.5,0);
+    \draw[->, red,line width=0.5mm] (-2,0.05) to (2.2,0.05) to (0.95, 0.7) to (1.2,1.2);
+    
+    \node (I) at (-0.9,0.30) {\scriptsize Incomming Light};
+    \node (R) at (1.7,1.5) {\scriptsize Red};
+    \node (G) at (4.15,-0.2) {\scriptsize Green};
+    \node (B) at (1.5,-1.7) {\scriptsize Blue};
+    \node (Img) at (9.5,-0.8) {\scriptsize RGB Image};
+    
+    \draw[fill=blue, rotate around={38:(1.0,-1.6)}] (0.55,-1.5) rectangle (1.6,-1.65);
+    \draw[fill=green] (3.5,-0.5) rectangle (3.65,0.5);
+    \draw[fill=red, rotate around={-18:(1.1,1.15)}] (0.6,1.27) rectangle (1.6,1.42);
+    
+    \draw (1.3,-1.26) to (5.0,-1.26) to (5.0,0.0);
+    \draw[->] (3.65,0) to (5.5,0.0);
+    \draw (1.64,1.15) to (5.0, 1.15) to (5.0,0.0);
+    
+    \begin{scope}[yshift=22, xshift=170, scale=0.5]
+        \fill[red] (0,0) rectangle (2.4,2.4);
+        \draw[step=4mm, black] (0,0) grid (2.4,2.4); 
+        \draw[black,thick] (0,0) rectangle (2.4,2.4);
+    \end{scope}
+    \begin{scope}[yshift=-18, xshift=170, scale=0.5]
+        \fill[green] (0,0) rectangle (2.4,2.4);
+        \draw[step=4mm, black] (0,0) grid (2.4,2.4); 
+        \draw[black,thick] (0,0) rectangle (2.4,2.4);
+    \end{scope}
+    \begin{scope}[yshift=-58, xshift=170, scale=0.5]
+        \fill[blue] (0,0) rectangle (2.4,2.4);
+        \draw[step=4mm, black] (0,0) grid (2.4,2.4); 
+        \draw[black,thick] (0,0) rectangle (2.4,2.4);
+    \end{scope}
+    
+    \draw (7.5,-1.26) to (8.0,-1.26) to (8.0,0.0);
+    \draw[->] (7.5,0) to (8.5,0.0);
+    \draw (7.5,1.15) to (8.0, 1.15) to (8.0,0.0);
+    
+    \begin{scope}[yshift=-10, xshift=250]
+        \begin{scope}[yshift=0, xshift=0, scale=0.5]
+            \fill[red, fill opacity=.7] (0,0) rectangle (2.4,2.4);1
+            \draw[step=4mm, black] (0,0) grid (2.4,2.4); 
+            \draw[black,thick] (0,0) rectangle (2.4,2.4);
+        \end{scope}
+        \begin{scope}[yshift=3, xshift=3, scale=0.5]
+            \fill[green, fill opacity=.7] (0,0) rectangle (2.4,2.4);
+            \draw[step=4mm, black] (0,0) grid (2.4,2.4); 
+            \draw[black,thick] (0,0) rectangle (2.4,2.4);
+        \end{scope}
+        \begin{scope}[yshift=6, xshift=6, scale=0.5]
+            \fill[blue, fill opacity=.7] (0,0) rectangle (2.4,2.4);
+            \draw[step=4mm, black] (0,0) grid (2.4,2.4); 
+            \draw[black,thick] (0,0) rectangle (2.4,2.4);
+        \end{scope}
+    \end{scope}
+
+\end{tikzpicture}

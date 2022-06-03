@@ -1,0 +1,56 @@
+
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.12}
+
+\pgfmathdeclarefunction{gauss}{3}{%
+    \pgfmathparse{1/(#3*sqrt(2*pi))*exp(-((#1-#2)^2)/(2*#3^2))}%
+}
+
+% GAUSSIANs: confidence level
+\begin{tikzpicture}[>=stealth',thick,tip/.style={->,shorten >=0.007pt},]
+
+\def\q{5.5};
+\def\B{4};
+\def\S{7};
+\def\Bs{1.00};
+\def\Ss{1.00};
+\def\xmax{\S+3.2*\Ss};
+\def\ymin{{-0.15*gauss(\B,\B,\Bs)}};
+
+\begin{axis}[height=6cm,width=\linewidth,every axis plot post/.append style={
+    mark=none,domain={-0.05*(\xmax)}:{1.08*\xmax},samples=80,smooth},
+xmin={-0.1*(\xmax)}, xmax=\xmax,
+ymin=\ymin, ymax={1.1*gauss(\B,\B,\Bs)},
+axis line style=thick,
+enlargelimits=upper, % extend the axes a bit to the right and top
+ticks=none,
+%xlabel={propriété},
+ylabel={densité de probabilité},
+%every axis x label/.style={at={(current axis.right of origin)},anchor=north west},
+]
+
+% plots
+\addplot[name path=B,very thick,black!10!teal] {gauss(x,\B,\Bs)};
+\addplot[name path=S,very thick,black!10!orange ] {gauss(x,\S,\Ss)};
+\addplot[black,dashed,name path=Q,thick]
+coordinates {(\q, {0.90*gauss(\B,\B,\Bs)}) (\q, \ymin)}
+node[below=2pt,anchor=south west] {\scriptsize \textbf{Seuil de classification donné par Bayes}};
+
+% fill
+\path[name path=xaxis] (0,0) -- (\xmax,0); % \pgfkeysvalueof{/pgfplots/xmin}
+\addplot[white!50!teal] fill between[of=xaxis and B, soft clip={domain=\q:\xmax}];
+\addplot[white!50!orange]  fill between[of=xaxis and S, soft clip={domain=0:\q}];
+
+% labels
+\node[above,      black!20!teal] at (1.0*\B,{gauss(\B,\B,\Bs)}) {\scriptsize \textbf{Données de Classe 1}};
+\node[above right,black!20!orange ] at (0.82*\S,{gauss(\S,\S,\Ss)}) {\scriptsize \textbf{Données de Classe 2}};
+%\node[above left, black!20!red ] at ({0.8*\q},{gauss(1.07*\q,\B,\Bs)}) {\strut$\beta$};
+%\node[above right,black!20!blue] at ({1.1*\q},{gauss(1.07*\q,\B,\Bs)}) {\strut$\alpha$};
+
+\node[above left] (I) at ({\B*1.38},{0.27*gauss(\B,\B,\Bs)}) {\scriptsize \textbf{Erreur de classification}};
+
+\draw[->] (I.south) to ({\B/2+\q/1.7}, 0.035);
+\draw[->] (I.south) to ({\S/2+\q/2.3}, 0.035);
+
+\end{axis}
+\end{tikzpicture}

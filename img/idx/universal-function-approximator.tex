@@ -1,0 +1,54 @@
+\include{content/tkiz-rules-cnn}
+
+\vspace{-1em}
+\begin{tikzpicture}[
+>=stealth',thick,
+tip/.style={->,shorten >=0.007pt},
+every node/.style={scale=0.7},
+]
+\matrix[column sep=4mm, row sep=4mm, align=center] {
+	% first line
+	\node (raw)    [terminal]      {Input \\ 1200x800xN};         &
+	\node (conv1)  [nonterminal]   {Conv 1x1 \\ 1200x800x5};      &
+	\node (bn1)    [static]        {BatchNorm};     &
+	\node (sig1)   [static]        {Sigmoid};       &
+	\node (p1)     [operator]      {$\cup$};                             \\
+	% second line
+	& % empty
+	\node (conv2)  [nonterminal]   {Conv 1x1 \\ 1200x800x5};      &
+	\node (bn2)    [static]        {BatchNorm};     &
+	\node (sig2)   [static]        {Sigmoid};       &
+	\node (p2)     [operator]      {$\cup$};                             \\
+	% third line
+	& % empty
+	\node (conv3)  [nonterminal]   {Conv 1x1 \\ 1200x800x5};      &
+	\node (bn3)    [static]        {BatchNorm};     &
+	\node (sig3)   [static]        {Sigmoid};       &
+	\node (p3)     [operator]      {$\cup$};                           &
+	\node (out)    [terminal]      {Output \\ 1200x800x1};        \\
+};
+
+\begin{scope}[->,rounded corners=2mm]
+\draw[->]     (raw) -- (conv1);
+\draw[->]     (conv1) -- (bn1);
+\draw[->]     (bn1) -- (sig1);
+\draw[->]     (sig1) -- (p1);
+
+\draw[->]     (p1.south) to [in=45,out=-90, looseness=0.3] (conv2.north);
+\draw[->]     (conv2) -- (bn2);
+\draw[->]     (bn2) -- (sig2);
+\draw[->]     (sig2) -- (p2);
+
+\draw[->]     (p2.south) to [in=45,out=-90, looseness=0.3] (conv3.north);
+\draw[->]     (conv3) -- (bn3);
+\draw[->]     (bn3) -- (sig3);
+\draw[->]     (sig3) -- (p3);
+\draw[->]     (p3) -- (out);
+
+
+\draw[->]     (raw.north) to [in=135,out=45, looseness=0.3] (p1.north);
+\draw[->]     (p1) -- (p2);
+\draw[->]     (p2) -- (p3);
+\end{scope}
+
+\end{tikzpicture}

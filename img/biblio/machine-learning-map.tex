@@ -1,0 +1,49 @@
+%\include{content/tkiz-rules-cnn}
+
+\begin{tikzpicture}[
+    >=stealth',thick,
+    tip/.style={->,shorten >=0.007pt},
+    filled/.style = {fill=circle area, draw=circle edge, thick},
+    outline/.style = {draw=circle edge, thick},
+    F/.style = {
+        draw, fill=white, inner sep=7mm, fit=(current bounding box), drop shadow, node contents={}
+    },
+    E/.style = {
+        rectangle,
+        minimum size=1cm,
+        text width=2.5cm,
+        outline
+    },
+    G/.style = {rectangle},
+    every text node part/.style={align=center},
+    scale=0.8
+]
+    \definecolor{tempcolor}{rgb}{1,1,1}
+    \colorlet{circle edge}{black!50}
+    \colorlet{circle area}{black!20}
+
+    \coordinate (a) at (-2cm,-1.5cm);
+    \coordinate (c) at ( 0cm, 2cm);
+    \coordinate (d) at ( 2cm,-1.5cm);
+    \coordinate (e) at (0cm,-0.25cm);
+    
+    \node[E, fill=green!20, xshift=-2.8cm]  at (a) {\scriptsize SVM, KNN, RF \\ AdaBoost \\[-0.5em] \dots};
+    \node[E, fill=red!20, xshift= 2.8cm]   at (c) {\scriptsize PCA, K-means \\ DBSCAN \\[-0.5em] \dots};
+    \node[E, fill=blue!20, xshift= 2.8cm] at (d) {\scriptsize Q-Learning \\ AC, A3C \\[-0.5em] \dots};
+
+    \draw[filled, fill=green!20, outline] (a) circle (2.cm);
+    \draw[filled, fill=red!20, outline] (c) circle (2.cm);
+    \draw[filled, fill=blue!20, outline] (d) circle (2.cm);
+    \draw[outline, fill opacity=0.5, fill=white] (e) circle (1.8cm);
+    \draw[outline, pattern=north west lines, pattern color=black!30] (e) circle (1.8cm);
+    
+    \node[G, xshift=-0.2cm, yshift=-0.2cm, rotate=-45] at (a) {Apprentissage \\ supervisé};
+    \node[G, xshift= 0.2cm, yshift=-0.2cm, rotate= 45] at (d) {Apprentissage \\ par renforcement};
+    \node[G, xshift= 0.0cm, yshift= 0.4cm] at (c) {Apprentissage \\ non-supervisé};
+    \node[G] at (e) { \textbf{Apprentissage} \\ \textbf{Profond}};
+    
+    \scoped[on background layer] \node (a) [F];
+    
+    \node[below left] at (a.north east) {Apprentissage Machine};
+    
+\end{tikzpicture}

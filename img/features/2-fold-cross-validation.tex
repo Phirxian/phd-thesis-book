@@ -1,0 +1,30 @@
+\include{content/tkiz-rules-cnn}
+\begin{tikzpicture}
+    \matrix (M) [
+        matrix of nodes,
+        nodes={
+            minimum height = 6mm,
+            minimum width = 1.5cm,
+            outer sep=0,
+            anchor=center,
+            draw,
+            scale=0.9
+        },
+        column 1/.style={nodes={draw=none}, minimum width = 4cm},
+        column 4/.style={nodes={draw=none}, minimum width = 1cm},
+        row sep=1pt, column sep=-\pgflinewidth, nodes in empty cells,
+        t/.style={minimum width = 3.75cm, top color=white, bottom color=green!20},
+        e/.style={minimum width = 3.75cm, top color=white, bottom color=red!20},
+    ]
+    {
+        Fold 1 & |[t]| train & |[e]| test  & $AUC_1$ \\
+        Fold 2 & |[e]| test  & |[t]| train & $AUC_2$ \\
+    };
+    
+    \draw (M-1-2.north west) ++(0,2mm) coordinate (LT) edge[|<->|, >= latex] node[above,scale=0.7]{Total number of images} (LT-|M-1-3.north east);
+    
+    \draw[decoration={brace,raise=-7pt,amplitude=4pt},decorate,line width=1pt] 
+    ([yshift=-5pt]M.north east) -- ([yshift=5pt]M.south east);
+    
+    \node  at (6.1,0) {$\frac{1}{2} \sum_{i=1}^{2}{AUC_i}$};
+\end{tikzpicture}

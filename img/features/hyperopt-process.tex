@@ -1,0 +1,32 @@
+\include{content/tkiz-rules-cnn}
+%\vspace{-3em}
+\begin{tikzpicture}[
+    >=stealth',thick,
+    tip/.style={->,shorten >=0.007pt},
+    every node/.style={scale=0.8},
+]
+\matrix[column sep=8mm, row sep=4mm, align=center] {
+	\node (hp)     [nonterminal]   {Hyper\\Parameters};         &
+	\node (oa)     [algorithm]     {Optimization\\Algorithm};           &
+	\node (bm)     [terminal]      {Best Model};               \\
+	
+	
+	\node (fv)     [nonterminal]   {Feature\\Extraction};         &
+	\node (oj)     [loss]          {Objective};         \\
+	
+	\node (ds)     [type]     {Dataset};         &
+	\node (cv)     [static]   {Cross-Validation};         &
+	\node (dt)     [static]   {DecisionTree};         &
+	\\
+};
+
+\draw[->] (hp) to (fv);
+\draw[->] (fv.south east) to (cv.north west);
+%\draw[->] (ds) to (cv);
+\draw[->] (ds) to (fv);
+\draw[->] (dt) to (cv);
+\draw[->] (cv) to (oj);
+\draw[->] (oj) to (oa);
+\draw[->] (oa) to (hp);
+\draw[->] (oa) to (bm);
+\end{tikzpicture}

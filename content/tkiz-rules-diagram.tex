@@ -1,0 +1,43 @@
+\tikzset{
+	base/.style = {
+		rectangle, rounded corners,
+		draw=black,
+		top color=white,
+		bottom color=black!20,
+		minimum width=3.5cm,
+		minimum height=1.0cm,
+		text centered,
+		font=\ttfamily
+	},
+	every node/.style={
+		font=\ttfamily,
+		scale=0.8
+	},
+	% Specifications for style of nodes:
+	activityStarts/.style = {
+		base,
+		fill=blue!30,
+		bottom color=blue!20,
+	},
+	startstop/.style = {
+		base,
+		fill=red!30
+	},
+	activityRuns/.style = {
+		base,
+		fill=green!30
+	},
+	process/.style = {
+		base,
+		%minimum width=2.5cm,
+		fill=orange!15,
+		bottom color=green!20,
+		font=\ttfamily
+	},
+	%
+	point/.style={coordinate},
+	draw=black!75,
+	tip/.style={->,shorten >=0.007pt},
+	every join/.style={rounded corners},
+	align=center,
+}

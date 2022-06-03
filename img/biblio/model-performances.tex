@@ -1,0 +1,23 @@
+
+  \include{content/tkiz-rules-cnn}
+  \vspace{-1em}
+  \begin{tikzpicture}[
+    >=stealth',thick,
+    tip/.style={->,shorten >=0.007pt},
+    every node/.style={scale=0.75, minimum width=10em},
+  ]
+  \matrix[column sep=8mm, row sep=4mm, align=center] {
+   \node (X)     [terminal]   {Données};        &
+   \node (M)     [algorithm]   {Modèle};        &
+   \node (p)     [nonterminal]   {Prédictions};       &
+   \node (E)     [loss]   {Performances}; &
+   \node (y)     [terminal]   {Références};        \\
+  };
+  
+  \draw[->] (X) to (M);
+  %\draw[->] (y) to (M);
+  \draw[->] (M) to (p);
+  
+  \draw[->] (y) to (E);
+  \draw[->] (p) to (E);
+\end{tikzpicture}

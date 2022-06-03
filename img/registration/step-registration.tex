@@ -1,0 +1,43 @@
+\include{content/tkiz-rules-cnn}
+
+\vspace{-1em}
+\begin{tikzpicture}[
+        >=stealth',thick,
+        tip/.style={->,shorten >=0.007pt},
+        every node/.style={scale=0.7},
+    ]
+    
+	\node[static, xshift=-5cm, yshift=2.0cm,minimum width=22.3em]
+	{Step 1 : roughtly corrected};
+	
+	\node  [static, xshift= 5cm, yshift=2.0cm,minimum width=22.3em]
+	{Step 2 : fully corrected};
+		
+	\matrix[column sep=4mm, row sep=4mm, align=center] {
+		\node (che)  [static]      {Chessboard\\Datas}; &
+		\node (hei)  [terminal]    {Approximate\\Height}; & &
+		\node (key)  [nonterminal] {Keypoint\\Extraction}; &
+		\node (sel)  [nonterminal] {Matching\\ And Filtering}; \\
+		%
+		\node (raw)  [terminal]     {Raw\\Images}; &
+		\node (aff)  [nonterminal]  {Affine\\Correction}; &
+		\node (rou)  [type]         {Roughly\\Corrected}; &
+		\node (per)  [nonterminal]  {Perspective\\Correction}; &
+		\node (ful)  [terminal]     {Fully\\Corrected}; \\
+	};
+	
+	\begin{scope}[->,rounded corners=2mm]
+    	\draw[->]     (raw) -- (aff);
+    	\draw[->]     (aff) -- (rou);
+    	\draw[->]     (rou) -- (per);
+    	\draw[->]     (per) -- (ful);
+    	
+    	\draw[->]     (hei) -- (aff);
+    	\draw[->, dashed]     (che.south east) -- (aff.north west);
+    	
+    	\draw[->]     (aff.north east) to [out=30, in=-180, looseness=0.75] (key.west);
+    	\draw[->]     (key) -- (sel);
+    	\draw[->]     (sel.south west) -- (per.north east);
+	\end{scope}
+    
+\end{tikzpicture}

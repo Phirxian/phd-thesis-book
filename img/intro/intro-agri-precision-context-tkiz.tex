@@ -1,0 +1,26 @@
+\include{content/tkiz-rules-diagram}
+
+\begin{tikzpicture}[
+	>={Latex[width=2mm,length=2mm]},
+    >=latex,thick,
+    node distance=1.5cm,
+  ]
+  \node (IMG)      [process]                {Acquisition};
+  \node (GPS)      [activityStarts, below of=IMG, yshift=-0.5cm]  {Géoréférencement};
+  \node (PRE)      [process, below of=GPS, yshift=-0.5cm]  {Préconisation};
+  
+  \node (USE)    [process, right of=GPS, xshift=-7cm, minimum height=1.2cm] {Application\\ au champ};    
+  \node (PST)    [process, left of=GPS, xshift=7cm, minimum height=1.2cm] {Traitement \\ des données};
+  
+  \begin{scope}[->,decoration={post length=4pt},rounded corners=2mm]
+  \draw[->]     (IMG) -| (PST);
+  \draw[->]     (PRE) -| (USE);
+  \draw[->]     (PST) |- (PRE);
+  \draw[->]     (USE) |- (IMG);
+  
+  \draw[<->]     (GPS) -- (IMG);
+  \draw[<->]     (GPS) -- (PST);
+  \draw[<->]     (GPS) -- (USE);
+  \draw[<->]     (GPS) -- (PRE);
+  \end{scope}
+\end{tikzpicture}

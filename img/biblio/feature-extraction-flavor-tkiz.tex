@@ -1,0 +1,43 @@
+\include{content/tkiz-rules-cnn}
+
+\begin{tikzpicture}[
+        >=stealth',thick,
+        tip/.style={->,shorten >=0.007pt},
+        every node/.style={scale=0.7},
+    ]
+    \matrix[column sep=8mm, row sep=0mm, align=center] {
+    	& & 
+    	\node (shape) [type]   {Shape};         &
+    	\node (contour) [nonterminal, minimum width=5em]   {Contour};
+    	\node (area) [nonterminal, minimum width=5em,right of=contour, xshift=2.5em]   {Area};         
+    	\node (p1) [tiny,right of=area, xshift=0.5em]   {\dots};         \\
+    	%%%%%%%%%%%%%%%%%%%%%%%%
+    	\node (obj)     [terminal]      {Object};         &
+    	\node (fve)     [nonterminal]   {Feature\\Extraction};         &
+    	\node (spatial) [type]   {Spatial};         &
+    	\node (row)     [nonterminal, minimum width=5em]   {Crop row};         
+    	\node (p2)      [tiny,right of=row, xshift=0.5em]   {\dots};         &
+    	\node (ofv)     [terminal]      {Feature\\Vector};         \\
+    	%%%%%%%%%%%%%%%%%%%%%%%%
+    	& & 
+    	\node (texture) [type]   {Texture};         &
+    	\node (color) [nonterminal, minimum width=5em]   {Color};         
+    	\node (hist) [nonterminal,right of=color, xshift=2.5em, minimum width=5em]   {Gradient};         
+    	\node (p3) [tiny,right of=hist, xshift=0.5em]   {\dots};         \\
+    };
+    
+	\begin{scope}
+    	\draw[->]     (obj) to (fve);
+    	\draw[->]     (fve.east) to [in=180, out=0, looseness=2] (shape.west);
+    	\draw[->]     (fve.east) to [in=180, out=0, looseness=2] (spatial.west);
+    	\draw[->]     (fve.east) to [in=180, out=0, looseness=2] (texture.west);
+    	\draw[->]     (shape.east)   to [in=180, out=0] (contour.west);
+    	\draw[->]     (spatial.east) to [in=180, out=0] (row.west);
+    	\draw[->]     (texture.east) to [in=180, out=0] (color.west);
+    	
+    	\draw[->]     (p1.east) to [in=180, out=0, looseness=2] (ofv.west);
+    	\draw[->]     (p2.east) to [in=180, out=0, looseness=2] (ofv.west);
+    	\draw[->]     (p3.east) to [in=180, out=0, looseness=2] (ofv.west);
+	\end{scope}
+    
+\end{tikzpicture}

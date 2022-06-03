@@ -1,0 +1,25 @@
+\include{content/tkiz-rules-cnn}
+
+\begin{tikzpicture}[
+        >=stealth',thick,
+        tip/.style={->,shorten >=0.007pt},
+        every node/.style={scale=0.7},
+    ]
+    
+    \matrix (table) [matrix of nodes, column sep=6mm, row sep=6mm, align=center] {
+        \node (false)        [figure={green!20}]      {\includegraphics[width=4cm]{img/leaf/airphen-false} \nodepart{second} \large Input Image}; &
+        \node (detection)    [figure={blue!30}]      {\includegraphics[width=4cm]{img/leaf/airphen-detection} \nodepart{second} \large CNN Outputs}; &
+        \node (body)         [figure={blue!30}]      {\includegraphics[width=4cm]{img/leaf/airphen-body} \nodepart{second} \large Watershed Seeds}; \\
+        
+        &
+        \node (index)        [figure={black!20}]      {\includegraphics[width=4cm]{img/leaf/airphen-index} \nodepart{second} \large Deep-Indices}; &
+        \node (watershed)    [figure={green!20}]      {\includegraphics[width=4cm]{img/leaf/airphen-watershed} \nodepart{second} \large Refined Ouput}; \\
+    };
+    
+    \draw[->] (false) to (detection);
+    \draw[->] (detection) to (body);
+    \draw[->] (body) to (watershed);
+    \draw[->] (index) to (watershed);
+    \draw[->] (false) |- (index);
+    
+\end{tikzpicture}

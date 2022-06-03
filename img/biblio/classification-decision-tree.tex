@@ -1,0 +1,23 @@
+\include{content/tkiz-rules-diagram}
+
+\begin{tikzpicture}[
+		>={Latex[width=2mm,length=2mm]},
+		>=latex,thick,
+		node distance=1.5cm,
+    ]
+    
+    \node (p1)    [process, xshift= 0em, yshift=-0em, minimum height=0.8cm]           {NDVI};
+    \node (p2)    [startstop, xshift=-5em, yshift=-5em, minimum height=0.8cm]         {water};
+    \node (p3)    [process, xshift= 5em, yshift=-5em, minimum height=0.8cm]           {NDVI};
+    \node (p4)    [startstop, xshift= 0em, yshift=-10em, minimum height=0.8cm]        {soil};
+    \node (p5)    [startstop, xshift= 10em, yshift=-10em, minimum height=0.8cm]       {vegetation};
+
+    
+	\begin{scope}[->,rounded corners=2mm]
+        \draw[->] (p1) -- node [text width=1cm,midway, left=0.0cm] {$<0$} (p2);
+        \draw[->] (p1) -- node [text width=1cm,midway, right=0.2cm] {$\geq0$} (p3);
+        \draw[->] (p3) -- node [text width=1.5cm,midway, left=0.0cm] {$<0.03$} (p4);
+        \draw[->] (p3) -- node [text width=1.5cm,midway, right=0.2cm] {$\geq0.03$} (p5);
+	\end{scope}
+    
+\end{tikzpicture}

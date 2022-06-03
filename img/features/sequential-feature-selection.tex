@@ -1,0 +1,52 @@
+\include{content/tkiz-rules-cnn}
+%\vspace{-3em}
+\begin{tikzpicture}[
+    >=stealth',thick,
+    tip/.style={->,shorten >=0.007pt},
+    every node/.style={scale=0.8, minimum width=10em},
+]
+\matrix[column sep=4mm, row sep=4mm, align=center] {
+
+    & & \node (init)     [splitted={green!20}]   {$X=\emptyset$  \nodepart{second} $k=0$}; &       \\
+    
+    \coordinate (top-left); & & \node (Xs)     [nonterminal]   {Expand $X$}; &       \\
+    %& &       \\
+	
+	&\node (s0)    [nonterminal]   {$S_0=X \cup F_0$};        &
+	\node (si)     [nonterminal]   {$S_i=X \cup F_i$};                   &
+	\node (sn)     [nonterminal]   {$S_D=X \cup F_D$};        \\
+	
+	&\node (c0)    [nonterminal]   {ExtraTree\\Cross-Validation};        &
+	\node (ci)     [nonterminal]   {ExtraTree\\Cross-Validation};        &
+	\node (cn)     [nonterminal]   {ExtraTree\\Cross-Validation};        \\
+	
+	&\node (o0)     [loss]   {$Objective=0.51$};        &
+	\node (oi)     [loss]   {$Objective=\dots$};       &
+	\node (on)     [loss]   {$Objective=0.74$};        \\
+	%& &       \\
+	
+	\coordinate (bottom-left); & & \node (bs)     [nonterminal]   { $X = \texttt{Best}(S_i) $}; &       \\
+	& & \node (Xn)     [splitted={green!20}]   {$X=\{F_0 | F_3 | F_8 | \dots\}$  \nodepart{second} $k=K$}; &       \\
+};
+
+\draw[->] (init) to (Xs);
+\draw[->] (Xs) to (s0);
+\draw[->] (Xs) to (si);
+\draw[->] (Xs) to (sn);
+
+\draw[->] (s0) to (c0);
+\draw[->] (si) to (ci);
+\draw[->] (sn) to (cn);
+
+\draw[->] (c0) to (o0);
+\draw[->] (ci) to (oi);
+\draw[->] (cn) to (on);
+
+\draw[->] (o0) to (bs);
+\draw[->] (oi) to (bs);
+\draw[->] (on) to (bs);
+\draw[->] (bs) to (Xn);
+
+\draw[->] (bs) to (bottom-left) to node [text width=2cm,midway,above,rotate=90 ]{$k=k+1$} (top-left) to (Xs);
+
+\end{tikzpicture}
