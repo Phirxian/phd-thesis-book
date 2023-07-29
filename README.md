@@ -27,10 +27,15 @@ L'entreprise SITIA, c'est focalisé sur les tâches de décision et d'action. Ce
 ## Réalisations
 Pour réaliser l'ensemble des tâches, deux grands axes sont possibles. Soit une approche standard reposant sur des algorithmes et de la création d'une chaîne de traitement (pré-traitement, Indices de végétation, Segmentation, ...) mais généralement sous-optimal (performances/temps). Soit une approche apprentissage profond, reposant sur des réseaux de neurones, généralement optimal (temps/performances) mais considéré comme difficilement interprétable. Ces deux grands axes ont des inconvénients et des points forts. L'originalité de cette thèse consiste en l'utilisation des deux méthodes. Une chaîne de traitement standard a été définie, mais chaque étape a été optimisée, soit par des hyper-paramètres, soit par apprentissage profond. Ces travaux ont mené à la création de quatre publications :
 
-- Two-step multi-spectral registration via key-point detector and gradient similarity. Application to agronomic scenes for proxy-sensing (publié) -> https://gitlab.com/phd-thesis-adventice/phd-airphen-alignment
-- DeepIndices : A new approach to remote sensing indices based on optimization and approximation of functions through deep-learning, with application to vegetation surfaces over uncalibrated data (publié) -> https://gitlab.com/phd-thesis-adventice/codes/phd-index-optimizer
-- Pixelwise Instance Segmentation Of Leaves In Dense Foliage (in review) -> https://gitlab.com/phd-thesis-adventice/codes/phd-segmentation-optimizer
-- Weed discrimination at leaf scale : towards the characterization of the vegetation  cover : A large comparison of shape, spatial and textural features (in review) -> https://gitlab.com/phd-thesis-adventice/codes/phd-leaf-features
+- Two-step multi-spectral registration via key-point detector and gradient similarity. Application to agronomic scenes for proxy-sensing
+  - https://gitlab.com/phd-thesis-adventice/phd-airphen-alignment
+  - https://github.com/Phirxian/phd-airphen-alignment
+- DeepIndices : A new approach to remote sensing indices based on optimization and approximation of functions through deep-learning, with application to vegetation surfaces over uncalibrated data
+  - https://gitlab.com/phd-thesis-adventice/codes/phd-index-optimizer
+- Pixelwise Instance Segmentation Of Leaves In Dense Foliage
+  - https://gitlab.com/phd-thesis-adventice/codes/phd-segmentation-optimizer
+- Weed discrimination at leaf scale : towards the characterization of the vegetation  cover : A large comparison of shape, spatial and textural features
+  - https://gitlab.com/phd-thesis-adventice/codes/phd-leaf-features
 
 ## Manuscrit
 Ce repository contient le manuscrit de thèse au format latex/tikz et une version compilée est disponible sur TEL.
