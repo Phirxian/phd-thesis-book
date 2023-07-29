@@ -43,3 +43,91 @@ Ce repository contient le manuscrit de thèse au format latex/tikz et une versio
 - Finalement, une conclusion et des perspectives sont proposées au vu des résultats de cette thèse.
 
 Bonne lecture
+
+# Citations
+
+## Thèse
+
+```bibtex
+@phdthesis{vayssade:tel-03688127,
+  TITLE = {{Approche multi-crit{\`e}re pour la caract{\'e}risation des adventices}},
+  AUTHOR = {Vayssade, Jehan-Antoine},
+  URL = {https://theses.hal.science/tel-03688127},
+  SCHOOL = {{Universit{\'e} Bourgogne Franche-Comt{\'e}}},
+  YEAR = {2022},
+  MONTH = Mar,
+  KEYWORDS = {Statistics ; Prediction ; Precision agriculture ; Computer vision ; Image analysis ; Artificial intelligence ; Vision par ordinateur ; Analyse d'image ; Intelligence artificielle ; Statistiques ; Pr{\'e}diction ; Agriculture de pr{\'e}cision},
+  TYPE = {Theses},
+  PDF = {https://theses.hal.science/tel-03688127/file/thesis-final.pdf},
+  HAL_ID = {tel-03688127},
+  HAL_VERSION = {v1},
+}
+```
+
+## Articles publiés
+
+```bibtex
+@inproceedings{vayssade:hal-02499730,
+  TITLE = {{Two-step multi-spectral registration via key-point detector and gradient similarity. Application to agronomic scenes for proxy-sensing}},
+  AUTHOR = {Vayssade, Jehan-Antoine and Jones, Gawain and Paoli, Jean-No{\"e}l and G{\'e}e, Christelle},
+  URL = {https://institut-agro-dijon.hal.science/hal-02499730},
+  BOOKTITLE = {{Proceedings of the 15th International Joint Conference on Computer Vision, Imaging and Computer Graphics Theory and Applications}},
+  ADDRESS = {La Valette, Malta},
+  YEAR = {2020},
+  MONTH = Feb,
+  DOI = {10.5220/0009169301030110},
+  KEYWORDS = {Registration ; Multi-spectral imagery ; Precision farming ; Feature descriptor},
+  PDF = {https://institut-agro-dijon.hal.science/hal-02499730/file/airphen-multispectral-registration-v16.pdf},
+  HAL_ID = {hal-02499730},
+  HAL_VERSION = {v1},
+}
+@Article{rs13122261,
+  AUTHOR = {Vayssade, Jehan-Antoine and Paoli, Jean-Noël and Gée, Christelle and Jones, Gawain},
+  TITLE = {DeepIndices: Remote Sensing Indices Based on Approximation of Functions through Deep-Learning, Application to Uncalibrated Vegetation Images},
+  JOURNAL = {Remote Sensing},
+  VOLUME = {13},
+  YEAR = {2021},
+  NUMBER = {12},
+  ARTICLE-NUMBER = {2261},
+  URL = {https://www.mdpi.com/2072-4292/13/12/2261},
+  ISSN = {2072-4292},
+  DOI = {10.3390/rs13122261}
+}
+@inproceedings{vayssade:hal-03278985,
+  TITLE = {{DeepIndices : Une nouvelle approche des indices de t{\'e}l{\'e}d{\'e}tection bas{\'e}e sur l'optimisation et l'approximation de fonctions par DeepLearning. Application aux indices de v{\'e}g{\'e}tation sur des donn{\'e}es non calibr{\'e}es}},
+  AUTHOR = {Vayssade, Jehan-Antoine and Paoli, Jean-No{\"e}l and G{\'e}e, Christelle and Jones, Gawain},
+  URL = {https://institut-agro-dijon.hal.science/hal-03278985},
+  BOOKTITLE = {{Conference: RJCIA : Rencontres des Jeunes Chercheur$\times$ses en Intelligence Artificielle}},
+  ADDRESS = {Bordeaux, France},
+  YEAR = {2021},
+  MONTH = Jul,
+  KEYWORDS = {Agriculture de pr{\'e}cision ; Images multi-spectrale ; Indices spectral ; T{\'e}l{\'e}d{\'e}tection ; Deep-learning ; Proxid{\'e}tection},
+  PDF = {https://institut-agro-dijon.hal.science/hal-03278985/file/short-paper.pdf},
+  HAL_ID = {hal-03278985},
+  HAL_VERSION = {v1},
+}
+@article{VAYSSADE2022106797,
+  title = {Pixelwise instance segmentation of leaves in dense foliage},
+  journal = {Computers and Electronics in Agriculture},
+  volume = {195},
+  pages = {106797},
+  year = {2022},
+  issn = {0168-1699},
+  doi = {https://doi.org/10.1016/j.compag.2022.106797},
+  url = {https://www.sciencedirect.com/science/article/pii/S0168169922001144},
+  author = {Jehan-Antoine Vayssade and Gawain Jones and Christelle Gée and Jean-Noël Paoli},
+  keywords = {Precision agriculture, Remote sensing, Leaf segmentation, Dense foliage, Boundary detection, Semantic segmentation, CNN, Multispectral},
+}
+@article{VAYSSADE2023100245,
+  title = {Towards the characterization of crop and weeds at leaf scale: A large comparison of shape, spatial and textural features},
+  journal = {Smart Agricultural Technology},
+  volume = {5},
+  pages = {100245},
+  year = {2023},
+  issn = {2772-3755},
+  doi = {https://doi.org/10.1016/j.atech.2023.100245},
+  url = {https://www.sciencedirect.com/science/article/pii/S2772375523000758},
+  author = {Jehan-Antoine Vayssade and Gawain Jones and Jean-Noël Paoli},
+  keywords = {Leaf classification, Crop and weed discrimination, Remote sensing, Multispectral},
+}
+```
